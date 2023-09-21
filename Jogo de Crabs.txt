@@ -1,0 +1,46 @@
+#Jogo de Craps
+
+import random
+
+#Gera numeros aleatorios
+def rolarDados()
+    dado1 = random.randrange(1,7)
+    dado2 = random.randrange(1,7)
+    soma = dado1 + dado2
+
+    print(Jogador rolou %d + %d = %d % (dado1, dado2, soma))
+    return soma
+
+#Verifica o status do jogo e o resultado
+def statusJogo(soma)
+    if soma in (7, 11)
+        return 1
+    elif soma in (2, 3, 12)
+        return 2
+    else
+        return 0
+
+#Joga uma partida de craps
+
+def craps()
+    soma = rolarDados()
+    status = statusJogo(soma)
+
+    if status == 1
+        print(Jogador ganhou)
+    elif status == 2
+        print(Jogador perdeu)
+    else
+        print(Jogador continua)
+        meuPonto = soma
+        soma = rolarDados()
+        while soma != meuPonto and soma != 7
+            soma = rolarDados()
+
+        if soma == meuPonto
+            print(Jogador ganhou)
+        else
+            print(Jogador perdeu)
+
+#Executa o jogo
+craps()
